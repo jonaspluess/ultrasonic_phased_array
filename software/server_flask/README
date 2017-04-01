@@ -1,0 +1,53 @@
+################################################################################
+#
+#  Copyright (C) 2016, 2017, Mijnssen Raphael, Pluess Jonas
+#
+#  This program is free software; you can redistribute it and/or modify
+#  it under the terms of the GNU General Public License as published by
+#  the Free Software Foundation; either version 2 of the License, or
+#  (at your option) any later version.
+#
+#  This program is distributed in the hope that it will be useful,
+#  but WITHOUT ANY WARRANTY; without even the implied warranty of
+#  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+#  GNU General Public License for more details.
+#
+#  You should have received a copy of the GNU General Public License
+#  along with this program; if not, write to the Free Software
+#  Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston,
+#  MA 02110-1301, USA.
+#
+################################################################################
+
+################################################################################
+# about
+################################################################################
+This is the control software for the ultrasonic phased array. It controls the
+firmware of the Arduino DUE and generates a flask http server on the local
+machine.
+
+
+################################################################################
+# requirements
+################################################################################
+The version numbers are the lowest testet versions. Newer packages should also
+work.
+
+To run the flask server, you need to install python with the following packages:
+- numpy		v1.8.2
+- scipy		v0.14.0
+- pyusb		v1.0.0
+- flask		v0.10.1
+- wtforms	v2.0.1
+- gevent	v1.0.1
+
+Optional for testing purposes you need also the following packages:
+- matplotlib
+
+
+################################################################################
+# run the server
+################################################################################
+connect the desktop PC over USB with the native port of the arduino DUE board.
+Run the python script "server_flask.py" to start the web server. Connect to
+the server over the port 5000

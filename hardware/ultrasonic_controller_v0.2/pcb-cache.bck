@@ -1,0 +1,12 @@
+EESchema-DOCLIB  Version 2.0
+#
+$CMP Crystal
+D Murata Piezo Transducer
+$ENDCMP
+#
+$CMP OPA2350
+D Rail to Rail Op Amp
+K OpAmp
+$ENDCMP
+#
+#End Doc Library

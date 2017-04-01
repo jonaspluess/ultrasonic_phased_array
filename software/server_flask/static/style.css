@@ -1,0 +1,149 @@
+@charset "UTF-8";
+
+/*******************************************************************************
+ *
+ * Copyright (C) 2016, 2017, Mijnssen Raphael, Pluess Jonas
+ *
+ * Stylesheet for screens (PC, Laptop, Handhelds, Smartphones, ...)
+ *
+ * CSS3
+ *
+ ******************************************************************************/
+
+/* html body style */
+body{
+	font-size: 12px;
+	/*max-width: 1200px;*/
+	width: auto;
+	height: 100%;
+	margin-left: auto;
+	margin-right: auto;
+	margin-top: 0px;
+	margin-bottom: 0px;
+	padding: 0px 0px 0px 0px;
+	border: 0px solid #000000;
+	color: #000000;
+	background: #ffffff;
+	font-family: sans-serif;
+}
+
+/* html header style */
+header{
+	clear: both;
+	width: auto;
+	height: auto;
+	margin: 0px 0px 0px 0px;
+	padding: 10px 10% 10px 10%;
+	border: 0px solid #000000;
+	color: #000000;
+	background: #ffffff;
+}
+
+/* main content style */
+main{
+	text-align: left;
+	clear: both;
+	overflow: auto;
+	width: auto;
+	height: 100%;
+	margin: 0px 0px 0px 0px;
+	padding: 0px 0px 0px 0px;
+	border: 0px solid #000000;
+	color: #000000;
+	background: #ffffff;
+}
+
+.indent{
+	text-align: left;
+	clear: both;
+	overflow: auto;
+	width: auto;
+	height: 100%;
+	margin: 0px 0px 0px 0px;
+	padding: 20px 10% 20px 10%;
+	border: 0px solid #000000;
+	color: #000000;
+	background: #ffffff;
+}
+
+.form{
+	text-align: left;
+	clear: both;
+	overflow: auto;
+	display: inline-block;
+	width: auto;
+	height: 100%;
+	margin: 0px 10px 0px 0px;
+	padding: 0px 0px 0px 5px;
+	border: 0px solid #000000;
+	color: #000000;
+	background: #dddddd;
+}
+
+h1{
+	font-weight: bold;
+	text-align: left;
+	margin: 0px 0px 0px 0px;
+	padding: 0px 0px 0px 0px;
+	color: #28211b;
+	background: #ffffff;
+	border: 0px solid #000000;
+}
+
+h2{
+	font-weight: bold;
+	text-align: left;
+	margin: 0px 0px 0px 0px;
+	padding: 0px 0px 0px 0px;
+	color: #28211b;
+	background: #ffffff;
+	border: 0px solid #000000;
+}
+
+h3{
+	font-weight: bold;
+	text-align: left;
+	margin: 10px 0px 10px 0px;
+	padding: 0px 0px 0px 0px;
+	color: #28211b;
+	background: #ffffff;
+	border: 0px solid #000000;
+}
+
+p{
+	max-width: 1200px;
+	font-weight: normal;
+	text-align: left;
+	text-decoration: none;
+	clear: both;
+	margin: 0px 0px 0px 0px;
+	padding: 0px 0px 0px 0px;
+	border: 0px solid #000000;
+	color: #000000;
+	background: #ffffff;
+}
+
+a{
+	color: #666666;
+	background: #ffffff;
+}
+
+img{
+	max-width: 100%;
+	width: auto;
+	height: auto;
+	margin: 0px 0px 0px 0px;
+	padding: 0px 0px 0px 0px;
+}
+
+/* footer style */
+footer{
+	clear: both;
+	width: auto;
+	height: auto;
+	margin: 0px 0px 0px 0px;
+	padding: 10px 10% 10px 10%;
+	border: 0px solid #000000;
+	color: #000000;
+	background: #ffffff;
+}

@@ -1,0 +1,13 @@
+EESchema-DOCLIB  Version 2.0
+#
+$CMP CONN_01X06
+D Connector, single row, 01x06
+K connector
+$ENDCMP
+#
+$CMP TFBS4711
+D TFBS4711
+K ir
+$ENDCMP
+#
+#End Doc Library

@@ -1,0 +1,96 @@
+<!doctype html>
+<html lang="de">
+	<head>
+		<meta charset="UTF-8">
+		<meta name="robots" content="noindex, nofollow, noarchive, noimageindex">
+		<meta name="title" content="Ultrasonic Phased Array">
+		<meta name="copyright" content="Raphael Mijnssen and Jonas Plüss">
+		<meta name="author" content="Raphael Mijnssen and Jonas Plüss">
+		<meta name="description" lang="de" content="">
+		<meta name="abstract" lang="de" content="">
+		<meta name="keywords" lang="de" content="">
+		<meta name="viewport" content="width=device-width,initial-scale=1.0">
+		<link rel="stylesheet" type="text/css" media="screen" href="{{url_for('static', filename='style.css')}}">
+		<link rel="stylesheet" type="text/css" media="screen" href="{{url_for('static', filename='style_plot.css')}}">
+		<link rel="shortcut icon" href="{{url_for('static', filename='favicon.ico')}}">
+		<script language="javascript" type="text/javascript" src="{{url_for('static', filename='d3.v3.js')}}"></script>
+		<script language="javascript" type="text/javascript" src="{{url_for('static', filename='jquery.min.js')}}"></script>
+		<script language="javascript" type="text/javascript" src="{{url_for('static', filename='plot.js')}}"></script>
+
+		<title>
+			Ultrasonic Phased Array
+		</title>
+	</head>
+	<body>
+		<header>
+			<h1>
+				Ultrasonic Phased Array
+			</h1>
+		</header>
+		<main>
+			<div class="indent">
+				<p>
+					<form method="post" action="">
+						<span class="form">
+							Angle min: {{input_form.angle_min}}
+						</span>
+						<span class="form">
+							Angle max: {{input_form.angle_max}}
+						</span>
+						<span class="form">
+							Aperture: {{input_form.aperture}}
+						</span>
+						<span class="form">
+							Number of bursts: {{input_form.num_bursts}}
+						</span>
+						<span class="form">
+							Receiver buffer count: {{input_form.rec_buf_cnt}}
+						</span>
+						<span class="form">
+							Tracked maximums: {{input_form.numb_of_maximums}}
+						</span>
+						<span class="form">
+							Sonic speed: {{input_form.sonic_speed(size=5)}}
+						</span>
+						<span class="form">
+							<input type="submit" value="Enter">
+						</span>
+					</form>
+				</p>
+			</div>
+			<div class="indent">
+				<div id="heatmap_plot">
+				</div>
+				<div id="time_series_plot">
+				</div>
+			</div>
+
+			<script>
+				var sonic_speed = parseFloat({{ input_form.sonic_speed.data }});
+				var numb_of_maximums = {{ input_form.numb_of_maximums.data }};
+
+				//start maximum tracking (if numb_of_maximums is zero, maximums wont be calculated)
+				var maximum_tracking_obj = start_maximum_tracking(numb_of_maximums);
+
+				//generate graphs
+				var timeseries_graph = make_timeseries_plot("#time_series_plot");
+				var heatmap_graph = make_heatmap_plot_canvas("#heatmap_plot", maximum_tracking_obj);
+
+				//update_graph as callback-function for sse-eventlistener
+				sse_listener(heatmap_graph.update_plot, timeseries_graph.update_plot);
+			</script>
+
+			<div class="indent">
+				<p>
+					<a href={{url_for('about')}}>About this project</a>
+				</p>
+			</div>
+
+		</main>
+		<footer>
+			<p>
+				copyright &copy; 2016 - 2017 by Raphael Mijnssen &amp; Jonas Plüss
+			</p>
+		</footer>
+	</body>
+</html>

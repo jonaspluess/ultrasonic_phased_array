@@ -1,0 +1,25 @@
+Drill report for /home/user/pro6E/hardware/ultrasonic_controller_v0.2/pcb.kicad_pcb
+Created on Sun 19 Mar 2017 17:00:03 CET
+
+Copper Layer Stackup:
+    =============================================================
+    L1 :  F.Cu                      front
+    L2 :  In1.Cu                    inner1
+    L3 :  In2.Cu                    inner2
+    L4 :  B.Cu                      back
+
+
+Drill file 'pcb.drl' contains
+    plated through holes:
+    =============================================================
+    T1  0.40mm  0.016"  (103 holes)
+    T2  1.02mm  0.040"  (86 holes)
+
+    Total plated holes count 189
+
+
+Drill file 'pcb-NPTH.drl' contains
+    unplated through holes:
+    =============================================================
+
+    Total unplated holes count 0

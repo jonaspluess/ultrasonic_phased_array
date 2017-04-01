@@ -1,0 +1,60 @@
+################################################################################
+#
+#  Copyright (C) 2016, 2017, Mijnssen Raphael, Pluess Jonas
+#
+#  This program is free software; you can redistribute it and/or modify
+#  it under the terms of the GNU General Public License as published by
+#  the Free Software Foundation; either version 2 of the License, or
+#  (at your option) any later version.
+#
+#  This program is distributed in the hope that it will be useful,
+#  but WITHOUT ANY WARRANTY; without even the implied warranty of
+#  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+#  GNU General Public License for more details.
+#
+#  You should have received a copy of the GNU General Public License
+#  along with this program; if not, write to the Free Software
+#  Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston,
+#  MA 02110-1301, USA.
+#
+################################################################################
+
+################################################################################
+# about
+################################################################################
+This is the firmware of the external ultrasonic sender module. It runs on an
+Arduino nano or uno (atmega238p).
+
+
+################################################################################
+# compile
+################################################################################
+To compile the source code the requirements are:
+- gnu make
+- avr-toolchain
+
+Optional:
+- Doxygen
+
+You have to run "make build", "make wall" or "make" to compile the source code.
+This will generate a few binary output files.
+
+
+################################################################################
+# install
+################################################################################
+To install the generated .hex file to the microcontroller the requirements are:
+- avrdude (to upload .hex files to the device)
+
+To upload the .hex file to the microcontroller you have to connect
+the Arduino to the PC and run "make install_arduino", "make install_wiring" or
+"make install_avrdragon", depending on your programmer device.
+
+
+################################################################################
+# clean, doc, tar
+################################################################################
+With "make clean" all binary output will be deleted, with "make doc", a doxigen
+documentation will be generated and with "make tar", a gziped backup file will
+be generated.
+

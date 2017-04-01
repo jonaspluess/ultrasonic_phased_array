@@ -1,0 +1,25 @@
+\textbf{Ergebnisse}\\
+Im Rahmen dieses Projektes wurde ein Ultraschall Phased Array von der Idee her bis zum funktionierenden System entwickelt. Es erfüllt sämtliche Anforderungen aus dem Pflichtenheft (siehe Anhang \ref{sec:appendix_pflichtenheft}). Die maximale Messdistanz, bei der die Distanzabweichung weniger als $\pm 10 \mathrm{cm}$ beträgt, ist gemäss den Messungen in Kapitel \ref{sec:distanzmessungen} grösser als $5 \mathrm{m}$. Damit sind die Anforderungen bezüglich der maximalen Distanz und der Tiefenauflösung erfüllt.
+
+Die Verkürzung der Abklingzeit und die Reduktion des akustischen Übersprechens wurden durch ein Redesign der Hardware aus dem Projekt 5 erreicht. Dabei wurde die Schaltung so abgeändert, dass zum Senden und Empfangen dieselben Ultraschalltransceiver verwendet werden können. Die Firmware wurde einerseits an die neu entwickelte Hardware angepasst und andererseits so abgeändert, dass sie Steuerbefehle vom Host entgegennimmt, auf deren Basis entsprechende Messvorgänge ausführt werden. Nebenkeulen können optional mithilfe einer Amplitudenbelegung unterdrückt werden, was die Messungen im Kapitel \ref{sec:messung_der_sendeseitigen_richtcharakteristik_mit_amplitudenbelegung} aufzeigen.
+Die Software abseits vom Arduino DUE ist als plattformunabhängige Webapplikation implementiert. Über ein GUI wird das Phased Array System bedient und die Messresultate werden fortlaufend dargestellt. Die Signalverarbeitung ist in der Programmiersprache Python implementiert und schnell genug, sodass keine Verzögerungen entstehen.
+
+\textbf{Schwierigkeiten}\\
+Objekte mit stark reflektierender Oberfläche, welche nicht auf das Array gerichtet sind, werfen kaum Schall in die Richtung des Arrays zurück. Sie können deshalb schlecht detektiert werden (siehe Abbildung \ref{fig:image_test_obj_schaumstoff_20deg_1}).
+
+Die vom Mikrocontroller verursachten Verzögerungen beim Anschalten der PWM-Kanäle verunmöglichen das Senden mit einem Winkel von unter $2^{\circ}$.
+
+Die Anzahl verfügbarer ADC- und PWM-Kanäle ist vom Arduino DUE limitiert (siehe Kapitel \ref{sec:adc_und_mikrocontroller}). Mehr als acht PWM- und zwölf ADC-Kanäle sind nicht möglich.
+
+\textbf{Weiterentwicklung}\\
+Ein externes Sendemodul zur Positionsbestimmung (siehe Wunschziele im Anhang \ref{sec:appendix_pflichtenheft}) wurde pa\-rallel zum Projekt entwickelt. Ein Hardwareprototyp inkl. zugehöriger Software ist fertiggestellt. Die nötigen Veränderungen, damit das Sendemodul mit der aktuellen Software zusammenarbeiten kann, sind grösstenteils umgesetzt. Im GUI könnten die Positionsdaten bereits dargestellt werden. Leider hat es das externe Sendemodul aus zeitlichen Gründen nicht in diesen Bericht geschafft.
+
+Wenn die Sendepulse nicht mit einem Mikrocontroller, sondern mit einem FPGA generiert würden, könnte die Verzögerung beim Anschalten der PWM-Kanäle umgangen werden. Ein Senden mit $0^{\circ}$ wäre dann möglich.
+
+Für die dreidimensionale Steuerung des Schallkegels sind mehr ADC- und PWM-Kanäle nötig. Eine Portierung der Software (Firmware) auf ein leistungsfähigeres System wäre dann nötig.
+
+Die mechanische Kopplung zwischen den Modulen könnte weiter untersucht werden (z.B. durch Fitten eines theoretischen Modells an die Messungen der Richtcharakteristik).
+
+Signalwerte von entfernten Echos könnten invers zum Verlauf der Dämpfung (siehe Kapitel \ref{sec:die_daempfung_von_schall_in_luft}) skaliert werden. In einem Versuch wurde dies, wenn auch mathematisch nicht korrekt, bereits ausprobiert (siehe Abbildungen \ref{fig:image_test_distance_10m_scaled} und \ref{fig:image_test_distance_15m_scaled}).
+
+Eine Darstellung der Differenz zwischen den Scanvorgängen würde interessante Informationen zu Veränderungen in einer Umgebung aufzeigen. Spannend wäre zudem auch eine Betrachtung der Ableitungen des darzustellenden Signals.
