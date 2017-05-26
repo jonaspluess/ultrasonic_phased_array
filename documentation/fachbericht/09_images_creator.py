@@ -409,10 +409,34 @@ for i in range(NUM_MEASUREMENTS):
 	plt.ylabel('Richtcharakteristik abs(H(phi))')
 	plt.minorticks_on()
 	plt.grid()
-	plt.legend(loc='upper right')
+	plt.legend(loc='upper left')
 
 	#plt.show()
 	fig.savefig('graphics/plot_test_characteristic_rect_' + str(abs(int(phi_0[i]))) + '_cartesian.png')
+	plt.close()
+
+	########################################################################
+	fig = plt.figure(figsize=(10,5))
+
+	phi_meas = arr[0]
+	H_meas = arr[i+1] / max(arr[1])
+
+	H = calc_characteristics(d, lamb, phi_0[i]/180.0*pi, phi/180.0*pi, N, aperture)
+	plt.plot(phi, 20*log10(H), marker='', color='green', label='Berechnete Werte')
+
+	plt.plot(phi_meas, 20*log10(H_meas), marker='.', color='blue', label='Messwerte')
+
+	plt.xlim(min(phi), max(phi))
+	plt.ylim(-30, 0.0)
+
+	plt.xlabel('Abstrahlwinkel [Grad]')
+	plt.ylabel('Richtcharakteristik abs(H(phi)) [dB]')
+	plt.minorticks_on()
+	plt.grid()
+	plt.legend(loc='upper left')
+
+	#plt.show()
+	fig.savefig('graphics/plot_test_characteristic_rect_' + str(abs(int(phi_0[i]))) + '_cartesian_log.png')
 	plt.close()
 
 
@@ -476,8 +500,32 @@ for i in range(NUM_MEASUREMENTS):
 	plt.ylabel('Richtcharakteristik abs(H(phi))')
 	plt.minorticks_on()
 	plt.grid()
-	plt.legend(loc='upper right')
+	plt.legend(loc='upper left')
 
 	#plt.show()
 	fig.savefig('graphics/plot_test_characteristic_aperture_' + str(abs(int(aperture[i]))) + '_cartesian.png')
+	plt.close()
+
+	########################################################################
+	fig = plt.figure(figsize=(10,5))
+
+	phi_meas = arr[0]
+	H_meas = arr[i+1] / max(arr[i+1])
+
+	H = calc_characteristics(d, lamb, phi_0/180.0*pi, phi/180.0*pi, N, aperture[i])
+	plt.plot(phi, 20*log10(H), marker='', color='green', label='Berechnete Werte')
+
+	plt.plot(phi_meas, 20*log10(H_meas), marker='.', color='blue', label='Messwerte')
+
+	plt.xlim(min(phi), max(phi))
+	plt.ylim(-40, 0.0)
+
+	plt.xlabel('Abstrahlwinkel [Grad]')
+	plt.ylabel('Richtcharakteristik abs(H(phi)) [dB]')
+	plt.minorticks_on()
+	plt.grid()
+	plt.legend(loc='upper left')
+
+	#plt.show()
+	fig.savefig('graphics/plot_test_characteristic_aperture_' + str(abs(int(aperture[i]))) + '_cartesian_log.png')
 	plt.close()
